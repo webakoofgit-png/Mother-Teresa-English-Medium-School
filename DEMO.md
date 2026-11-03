@@ -12,6 +12,6 @@ Editable institutional details remain unverified placeholders. Photos are illust
 
 ## Verification status
 
-The development server was started, and `/`, `/login`, `/admin/dashboard` and `/student/dashboard` returned HTTP 200. Automated regression tests were added for route coverage, class-specific homework, payment balance calculations, attendance updates, notice audiences and reset behavior.
+The project now uses React, Vite and React Router, with no framework router or server-rendering dependency. The production build passes and all 83 tests pass, covering route coverage, both demo logins, role redirects, learner profiles, public notice details, shared data and branded PDFs.
 
-Full verification remains pending: the system drive ran out of space during installation; installation subsequently succeeded using the project-drive cache. The test runner later failed to launch with a Windows system-resource error. Strict TypeScript checking identified errors that still require correction. No successful production build or browser interaction audit has been confirmed.
+Strict TypeScript checking previously reported errors in the existing generic demo record models; that separate check is not part of the successful Vite build. Browser visual QA remains separate from the automated route and data tests.

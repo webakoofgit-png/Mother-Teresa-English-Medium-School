@@ -1,32 +1,13 @@
-﻿import { Link, createFileRoute } from "@tanstack/react-router";
+﻿import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/layout/site-layout";
 import { PageHero, Reveal, SectionHeading } from "@/components/website/reveal";
 import { images, school, values } from "@/data/site";
 import { useDemo } from '@/data/demo';
 
-export const Route = createFileRoute("/about")({
-  component: AboutPage,
-  head: () => ({
-    meta: [
-      { title: `About Our School | ${school.name}` },
-      {
-        name: "description",
-        content:
-          "Learn about Mother Teresa English Medium School — our mission, values, learning environment and connection with Shree Dhanlaxmi Foundation, Karad.",
-      },
-      { property: "og:title", content: `About Our School | ${school.name}` },
-      {
-        property: "og:description",
-        content:
-          "Our mission, values, learning environment and connection with Shree Dhanlaxmi Foundation, Karad.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-  }),
-});
 
-function AboutPage() {
+
+export default function AboutPage() {
   const data = useDemo();
   return (
     <SiteLayout>

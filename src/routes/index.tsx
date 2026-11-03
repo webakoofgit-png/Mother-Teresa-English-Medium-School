@@ -1,5 +1,5 @@
 import { HomeHero, SchoolBrandBanner } from '@/components/website/home-hero';
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -16,27 +16,7 @@ import { facilities, images, news, noticeCategories, school, stages, testimonial
 import { useDemo, visibleNotices } from '@/data/demo';
 import { PublicHomeSections } from '@/components/website/home-sections';
 
-export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { title: "Mother Teresa English Medium School | Malwadi (Masur), Karad" },
-      {
-        name: "description",
-        content:
-          "A self-financed English medium school from Nursery to Standard 12 in Malwadi (Masur), Taluka Karad, District Satara — managed by Shree Dhanlaxmi Foundation, Karad.",
-      },
-      { property: "og:title", content: "Mother Teresa English Medium School" },
-      {
-        property: "og:description",
-        content:
-          "From Nursery to Grade 12 — nurturing curiosity, character and confidence in Malwadi (Masur), Karad.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-});
+
 
 function Welcome() {
   const data = useDemo();
@@ -544,7 +524,7 @@ function ContactPreview() {
   );
 }
 
-function Index() {
+export default function Index() {
   return (
     <SiteLayout>
       <HomeHero />

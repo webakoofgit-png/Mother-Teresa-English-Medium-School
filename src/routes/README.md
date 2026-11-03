@@ -1,21 +1,7 @@
-# Routes
+# Page components
 
-TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
-defines a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
-`app/layout.tsx` — those are Next.js / Remix conventions. The only root layout
-is `src/routes/__root.tsx`.
+This directory contains the Home, About and Principal page components. Public modules, login and portals are reused from `src/components/`.
 
-## Conventions
+Declare URL paths in `src/app-routes.ts`; `src/App.tsx` maps them to page components through React Router. Register dynamic paths with `:id`. `src/main.tsx` installs BrowserRouter and reduced-motion support. Document metadata and fonts start in `index.html`.
 
-| File | URL |
-| --- | --- |
-| `index.tsx` | `/` |
-| `about.tsx` | `/about` |
-| `users/index.tsx` | `/users` |
-| `users/$id.tsx` | `/users/:id` (dynamic — bare `$`, no curly braces) |
-| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment) |
-| `files/$.tsx` | `/files/*` (splat — read via `_splat` param, never `*`) |
-| `_layout.tsx` | layout route (renders children via `<Outlet />`) |
-| `__root.tsx` | app shell — wraps every page; preserve `<Outlet />` |
-
-`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
+There is no generated route tree or file-routing plugin. New page files must be registered explicitly.

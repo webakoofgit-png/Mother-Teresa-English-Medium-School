@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from '@tanstack/react-router';
+import { Link } from 'react-router-dom';
 import { useDemo } from '@/data/demo';
 import { images, stages } from '@/data/site';
 import { Reveal, SectionHeading } from './reveal';

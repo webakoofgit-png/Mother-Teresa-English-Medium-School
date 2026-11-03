@@ -1,30 +1,13 @@
-﻿import { Link, createFileRoute } from "@tanstack/react-router";
+﻿import { Link } from "react-router-dom";
 import { ArrowLeft, Quote } from "lucide-react";
 import { SiteLayout } from "@/components/layout/site-layout";
 import { PageHero, Reveal, SectionHeading } from "@/components/website/reveal";
 import { school } from "@/data/site";
 import { useDemo } from '@/data/demo';
 
-export const Route = createFileRoute("/about_/principal-message")({
-  component: PrincipalMessagePage,
-  head: () => ({
-    meta: [
-      { title: `Principal's Message | ${school.name}` },
-      {
-        name: "description",
-        content: "A welcome message from the Principal of Mother Teresa English Medium School, Malwadi (Masur), Karad.",
-      },
-      { property: "og:title", content: `Principal's Message | ${school.name}` },
-      {
-        property: "og:description",
-        content: "A welcome message from the Principal of Mother Teresa English Medium School.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-  }),
-});
 
-function PrincipalMessagePage() {
+
+export default function PrincipalMessagePage() {
   const data = useDemo();
   return (
     <SiteLayout>

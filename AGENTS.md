@@ -13,8 +13,8 @@
 
 - User update (2026-11-03): use a logo-derived maroon, gold, leaf-green and warm-ivory theme instead of the initial navy/teal palette. Keep the existing semantic token aliases in `src/styles.css` for component compatibility. Original logo artwork remains unchanged.
 
-- Stack is TanStack Start + TypeScript with file-based routing under `src/routes` (platform-fixed). The uploaded brief asks for React Router/JS; implement its intent with TanStack Router and TS instead. Do not install react-router-dom.
-- All colors/typography are design tokens in `src/styles.css` (brand: navy #17365D, teal #0D9488, sunshine #F5B942, coral #F26B5B, pale teal #E9F7F4, ink #172B4D). Fonts Plus Jakarta Sans (display) + DM Sans (body) load via `<link>` in `src/routes/__root.tsx`. Never hardcode hex classes in components.
+- Stack is React + Vite + TypeScript with React Router. The user explicitly requested this migration on 2026-11-03. Routes are declared in `src/app-routes.ts` and rendered by `src/App.tsx`; the browser entry point is `src/main.tsx`.
+- All colors/typography are design tokens in `src/styles.css` (brand: maroon #982536, burgundy #641D2B, gold #D6AB36, leaf green #347A38, warm ivory #FFFAF1). Fonts Plus Jakarta Sans (display) + DM Sans (body) load via `<link>` in `index.html`. Never hardcode hex classes in components.
 - Official logos (MTEMS badge, Shree Dhanlaxmi Foundation shield) are CDN assets imported via `.asset.json` pointers in `src/assets/`. Never recreate, recolor or modify them; use their `.url`.
 - Editable site copy lives in `src/data/site.ts`. Public pages read from it so later admin CMS stages can replace it. Never fabricate real institutional facts (principal name, facilities, awards, fee structure, streams, foundation legal details) — use clearly editable placeholders.
 - Animations use framer-motion with `MotionConfig reducedMotion="user"` in the root route; reveals are opacity/transform only.

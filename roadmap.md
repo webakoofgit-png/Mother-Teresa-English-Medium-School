@@ -2,7 +2,7 @@
 
 ## Implementation update
 
-Public routes, the student portal, the admin workspace, the shared browser repository and regression test sources have been implemented. This roadmap records the original stages; final verification remains pending. See DEMO.md for access and known validation limits.
+Public routes, the student portal, the admin workspace, the shared browser repository and regression test sources have been implemented. This roadmap records the original stages; the React Router migration is verified by a production build and 83 passing tests. See DEMO.md for access and known validation limits.
 
 ## Stage 1 — Design system, header/footer, homepage (this build)
 - [x] Logo cleanup (school badge + foundation logo, transparent PNG assets)

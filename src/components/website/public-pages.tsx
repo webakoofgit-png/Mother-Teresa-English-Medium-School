@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation } from '@tanstack/react-router';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, Download, MapPin, CalendarDays, GraduationCap } from 'lucide-react';
 import { SiteLayout } from '@/components/layout/site-layout';
 import { PageHero, Reveal } from './reveal';

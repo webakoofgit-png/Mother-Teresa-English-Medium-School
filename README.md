@@ -2,7 +2,7 @@
 
 A public school website, student portal and administration dashboard for Mother Teresa English Medium School, Malwadi (Masur), Karad, Satara, managed by Shree Dhanlaxmi Foundation, Karad.
 
-Built with TanStack Start, TypeScript, React and Tailwind CSS. The logo-derived maroon, gold, green and ivory theme preserves the supplied official artwork.
+Built with React, TypeScript, Vite, React Router and Tailwind CSS. The logo-derived maroon, gold, green and ivory theme preserves the supplied official artwork.
 
 The frontend demo includes class-specific homework, fees and receipts, attendance, timetables, results, notices, admissions and editable website content. Student downloads generate branded PDF documents with both official logos. Demo records persist in browser storage and can be reset in Admin Settings.
 
@@ -16,10 +16,10 @@ The project uses a local `.npm-cache` directory to avoid filling the system-driv
 
 ```sh
 npm run build
-npx vitest run --config vitest.pdf.config.ts
+npm test
 ```
 
-The PDF test suite covers document generation, original logos, pagination, payment calculations and student-specific data. See `DEMO.md` for the wider demo and verification notes.
+The test suite covers route matching, login navigation, demo role guards, notices, shared records, branded PDFs, pagination and payment calculations. See `DEMO.md` for the wider demo and verification notes.
 
 This project was built with [Lovable](https://lovable.dev).
 
@@ -41,3 +41,7 @@ cd Mother-Teresa-English-Medium-School
 npm i
 npm run dev
 ```
+
+## Static hosting
+
+`npm run build` produces `dist/`. Deploy that directory to an SPA-capable host. Direct URLs such as `/student/dashboard` must serve `index.html`; Netlify/Cloudflare Pages redirects and Vercel rewrites are included. The app runs entirely in the browser and does not require a server rendering framework.

@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight, BookOpen, Heart, Sparkles } from 'lucide-react';
 import { images, school } from '@/data/site';

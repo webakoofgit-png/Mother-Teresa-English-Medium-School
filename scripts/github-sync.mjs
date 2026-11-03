@@ -42,7 +42,7 @@ if (action === 'inspect') {
   else if (remote.stdout.trim() !== target) throw new Error('Origin points to a different repository.');
   git(['add', '--all']); git(['diff', '--cached', '--check']); git(['diff', '--cached', '--stat']);
 } else if (action === 'commit') {
-  audit(); git(['commit', '-m', 'Build school website, student portal and admin dashboard with branded PDFs']);
+  audit(); git(['commit', '-m', process.argv.slice(3).join(' ') || 'Update school website']);
 } else if (action === 'push') {
   if (git(['remote', 'get-url', 'origin'], { quiet: true }).stdout.trim() !== target) throw new Error('Unexpected remote.');
   git(['push', '--set-upstream', 'origin', 'main']);
