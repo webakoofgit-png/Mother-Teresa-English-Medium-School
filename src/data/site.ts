@@ -23,6 +23,7 @@ export const school = {
   udiseCode: "27310211807",
   instituteCode: "273102SC075",
   levels: "Nursery to Standard 12",
+  levelsLabel: "Nursery–12th",
   schoolType: "Self-Financed English Medium School",
   phone: "+91 XXXXX XXXXX",
   email: "info@school.in",

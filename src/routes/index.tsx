@@ -33,7 +33,7 @@ function Welcome() {
             loading="lazy"
           />
           <div className="absolute -bottom-6 right-6 rounded-2xl bg-navy px-5 py-4 text-white shadow-lg">
-            <p className="font-display text-2xl font-bold">Nursery–12</p>
+            <p className="font-display text-2xl font-bold">{school.levelsLabel}</p>
             <p className="text-xs text-white/70">One journey, many milestones</p>
           </div>
         </ImageReveal>
