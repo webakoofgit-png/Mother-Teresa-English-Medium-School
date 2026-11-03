@@ -1,0 +1,31 @@
+export type Field = { key: string; label: string; type?: string; options?: string[]; optional?: boolean };
+const f = (key: string, label: string, type = 'text', options?: string[], optional = false): Field => ({ key, label, type, options, optional });
+const cls = f('class', 'Class', 'classes');
+const division = f('division', 'Division', 'text');
+const status = f('status', 'Publication', 'select', ['Draft', 'Published']);
+const title = f('title', 'Title');
+const description = f('description', 'Description', 'textarea');
+const date = f('date', 'Date', 'date');
+const student = f('studentId', 'Student', 'students');
+const subject = f('subject', 'Subject');
+export const modules: Record<string, { title: string; description: string; fields: Field[] }> = {
+  'fee-structures': { title: 'Class fee structures', description: 'Fictional class templates. Review a template to assign its installment to active students in that class.', fields: [cls, f('category', 'Fee category'), f('amount', 'Amount (₹)', 'number'), f('due', 'Due date', 'date'), f('year', 'Academic year')] },
+  students: { title: 'Students', description: 'A clear view of every learner. All profiles below are fictional.', fields: [f('name', 'Full name'), f('admission', 'Admission number'), f('dob', 'Date of birth', 'date'), f('gender', 'Gender', 'select', ['Not specified', 'Female', 'Male']), cls, division, f('roll', 'Roll number', 'number'), f('year', 'Academic year'), f('guardian', 'Parent / guardian'), f('mobile', 'Parent mobile', 'tel'), f('address', 'Address', 'textarea'), f('admissionDate', 'Admission date', 'date'), f('status', 'Status', 'select', ['Active', 'Inactive'])] },
+  classes: { title: 'Classes & divisions', description: 'Organise the learning journey, from Nursery to Standard 12.', fields: [f('name', 'Class name'), division, f('teacher', 'Class teacher'), f('year', 'Academic year')] },
+  teachers: { title: 'Teachers', description: 'Demo faculty profiles and teaching assignments.', fields: [f('name', 'Name'), subject, cls, f('status', 'Status', 'select', ['Active', 'Inactive'])] },
+  homework: { title: 'Homework', description: 'Publish purposeful learning. Assignments sync to the matching class and division.', fields: [title, cls, division, subject, f('teacher', 'Teacher'), description, date, f('due', 'Due date', 'date'), f('attachment', 'Sample attachment reference', 'text', undefined, true), status] },
+  fees: { title: 'Fee assignments', description: 'Fictional fees for demonstration. Assign installments and record offline demo payments.', fields: [student, f('category', 'Fee category'), f('amount', 'Amount (₹)', 'number'), f('due', 'Due date', 'date'), f('year', 'Academic year')] },
+  payments: { title: 'Payment history', description: 'Demo offline records. No real payments are processed.', fields: [student, f('feeId', 'Fee assignment', 'fees'), f('amount', 'Amount (₹)', 'number'), date, f('method', 'Method', 'select', ['Cash (demo)', 'Bank transfer (demo)', 'Cheque (demo)'])] },
+  timetable: { title: 'Weekly timetable', description: 'Class periods, teachers and breaks, shared with the student portal.', fields: [cls, division, f('day', 'Day', 'select', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']), subject, f('teacher', 'Teacher'), f('time', 'Timing (e.g. 09:00 – 09:45)')] },
+  exams: { title: 'Examinations', description: 'Plan subject schedules and publish when ready.', fields: [title, cls, subject, date, f('time', 'Start time', 'time'), f('maximum', 'Maximum marks', 'number'), f('year', 'Academic year'), status] },
+  results: { title: 'Results', description: 'Enter subject marks. Published results appear for the selected student.', fields: [student, f('examId', 'Examination', 'exams'), subject, f('marks', 'Marks', 'number'), f('maximum', 'Maximum marks', 'number'), status] },
+  notices: { title: 'Notices & circulars', description: 'Publish to the public website, all students or a selected class.', fields: [title, description, f('category', 'Category', 'select', ['Notices', 'Events', 'Activities']), date, f('audience', 'Audience', 'select', ['Public', 'All Students', 'Selected Classes']), cls, f('pinned', 'Pin important notice', 'select', ['No', 'Yes']), status] },
+  events: { title: 'Events & activities', description: 'Keep the school calendar up to date.', fields: [title, description, date, f('category', 'Category', 'select', ['Events', 'Activities', 'Holiday']), status] },
+  gallery: { title: 'Gallery', description: 'Manage demo image URLs and captions. Official logos remain unchanged.', fields: [title, f('url', 'Image URL', 'url'), f('category', 'Category', 'select', ['Classrooms', 'Library', 'Activities', 'Events']), status] },
+  facilities: { title: 'Facilities', description: 'Keep unconfirmed facilities clearly labelled as sample categories.', fields: [title, description, f('category', 'Category'), f('url', 'Image URL', 'url'), status] },
+  achievements: { title: 'Achievements', description: 'Publish verified milestones or clearly labelled demo stories.', fields: [title, description, f('category', 'Category'), date, status] },
+  testimonials: { title: 'Community stories', description: 'Use clearly labelled sample testimonials until approved reviews are available.', fields: [title, description, status] },
+  materials: { title: 'Study materials', description: 'Class-specific notes and sample learning resources.', fields: [title, cls, subject, description] },
+  admissions: { title: 'Admission enquiries', description: 'Follow up with families and track every enquiry.', fields: [f('name', 'Student full name'), f('guardian', 'Parent / guardian'), f('mobile', 'Mobile', 'tel'), f('email', 'Email', 'email'), cls, f('year', 'Academic year'), description, f('status', 'Status', 'select', ['New', 'Contacted', 'Under Review', 'Approved', 'Rejected']), f('notes', 'Internal notes', 'textarea', undefined, true)] },
+  contacts: { title: 'Contact enquiries', description: 'Messages submitted through the public contact page.', fields: [f('name', 'Name'), f('email', 'Email', 'email'), f('category', 'Category', 'select', ['General', 'Admissions', 'Academics', 'Foundation']), description, f('status', 'Status', 'select', ['New', 'Contacted', 'Closed'])] },
+};
